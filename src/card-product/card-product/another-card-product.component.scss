@@ -1,0 +1,47 @@
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ion-refresher {
+    z-index: 9999; 
+  }
+
+@media (max-width: 512px) {
+    li.products {
+        max-width: 190px;
+
+        img {
+            max-width: 150px;
+        }
+    }
+}
+
+@media (max-width: 465px) {
+    li.products {
+        max-width: 160px;
+        min-height: 228px;
+
+        img {
+            max-width: 120px;
+        }
+
+        p {
+                max-width: 200px;
+                margin-top: 5px;
+                font-weight: 500;
+                font-size: 14px;
+        }
+
+    }
+}
+
+app-cart-shop {
+    margin-left: auto;
+}

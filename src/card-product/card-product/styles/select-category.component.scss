@@ -1,0 +1,110 @@
+//ESTILO PARA O <select></select>
+
+.container {
+    margin: 0 auto;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.selected-item {
+    margin: 20px 0;
+}
+
+.cusSelBlock {
+    height: 50px;
+    min-width: 250px;
+    display: inline-block;
+    position: relative;
+    perspective: 800px;
+    justify-content: center;
+    z-index: 2;
+}
+
+.selectLabel {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    z-index: 9999;
+    background-color: #fff;
+    border: 1px solid #333;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: #333;
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    width: 100%;
+    letter-spacing: 2px;
+    line-height: 50px;
+    padding: 0 50px 0 20px;
+    text-align: left;
+    transition: transform 300ms;
+    transform-style: preserve-3d;
+    transform-origin: 50% 0%;
+    user-select: none;
+
+    &:after {
+        content: '\25BC';
+        border-left: 1px solid #333;
+        color: #333;
+        font-size: 12px;
+        line-height: 17px;
+        padding: 10px;
+        text-align: center;
+        position: absolute;
+        right: 0px;
+        top: 1%;
+        height: 56%;
+        width: 50px;
+    }
+
+    &.active:after {
+        content: '\25B2';
+    }
+}
+
+.options {
+    position: absolute;
+    top: 50px;
+    height: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.3s ease;
+
+    &.show {
+        height: auto;
+    }
+
+    li {
+        background-color: #fff;
+        border-left: 1px solid #333;
+        border-right: 1px solid #333;
+        border-bottom: 1px solid #333;
+        cursor: pointer;
+        margin: 0;
+        list-style: none;
+        line-height: 50px;
+        flex: 1 1 200px;
+        padding: 0 50px 0 20px;
+        text-align: left;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover,
+        &.active {
+            background-color: #333;
+            color: #fff;
+        }
+    }
+}
+
+.feaBlock {
+    margin: 20px 0;
+    text-align: left;
+}

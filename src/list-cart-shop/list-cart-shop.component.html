@@ -1,0 +1,36 @@
+<app-menu>
+  <ion-refresher *ngIf="(showRefresher$ | async)" slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+<ion-list [inset]="true">
+  <ng-container *ngIf="(products | async)?.length !== 0">
+    <ion-item *ngFor="let product of products | async">
+      <img [src]="product.product.images[0]" (error)="onImageError($event)" alt="">
+      <ion-label>{{product.product.title}}</ion-label><ion-button expand="block" fill="clear" shape="round"
+        (click)="removeProduct(product.product)">-</ion-button>
+      <span>{{product.quantity}}</span>
+      <ion-button expand="block" fill="clear" shape="round" (click)="addProduct(product.product)">+</ion-button>
+      <p><span class="price">{{product.product.price | currency:'USD':'symbol':'1.2-2'}}</span></p>
+    </ion-item>
+    <ion-item *ngIf="(products | async)?.length !== 0">
+      <ion-label>
+        <h1>Total:</h1>
+      </ion-label>
+      <h3>{{totalPrice | currency:'USD':'symbol':'1.2-2'}}</h3>
+    </ion-item>
+
+    <div class="justify-content">
+      <ion-button (click)="presentAlert()" id="present-alert" shape="round">
+        Buy
+      </ion-button>
+    </div>
+  </ng-container>
+</ion-list>
+<ng-container *ngIf="(products | async)?.length === 0">
+  <div class="notFound">
+    <img src="../../../assets/images/pngwing.com (2).png" alt="">
+    <h1 class="animate__animated animate__fadeIn animate__delay-0.5s">The cart is empty</h1>
+    <p>You need to add at least one product to see them in this tab</p>
+  </div>
+</ng-container>
+</app-menu>

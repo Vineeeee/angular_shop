@@ -1,0 +1,27 @@
+<ion-menu contentId="main-content" type="overlay">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Olá, {{userData.email}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    Tap the button in the toolbar to open the menu.
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end" class="mobile-menu">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <div class="container">
+        <ion-title><ion-img [routerLink]="['/home/products']" [src]="imageLogoShop"></ion-img></ion-title>
+        <app-cart-shop></app-cart-shop>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ng-content></ng-content>
+  </ion-content>
+</div>

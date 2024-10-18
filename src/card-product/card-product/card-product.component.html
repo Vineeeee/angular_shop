@@ -1,0 +1,44 @@
+<app-menu>
+  <div class="backgroundimagepc">
+
+    <ion-refresher *ngIf="(showRefresher$ | async)" slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+  <div class="container">
+    <div class="cusSelBlock">
+      <div class="selectLabel" (click)="toggleOptions()">
+        {{ selectedCategory || 'Select Category' }}
+      </div>
+      <ul class="options" [ngClass]="{'show': showOptions}">
+        <li *ngFor="let category of categories; let i = index" [class.active]="selectedCategory === category"
+          (click)="selectCategory(category)" tabindex="{{i}}">
+          {{ category }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <ul>
+    <li class="products" *ngFor="let product of products | async" [routerLink]="['/home/product', product.id]">
+      <div>
+        <img [src]="product.images" (error)="onImageError($event)" />
+      </div>
+      <div>
+        <p>{{ product.title }}</p>
+        <p><span class="price">{{ product.price | currency:'USD':'symbol':'1.2-2' }}</span></p>
+      </div>
+    </li>
+  </ul>
+
+  <ng-container *ngIf="(products | async)?.length === 0">
+    <div class="ion-justify-content-center ion-align-items-center" style="display: flex; border-radius: 50%;">
+    <div class="notFound">
+      <img src="../../../../assets/images/pngwing.com.png" alt="">
+      <h1 class="animate__animated animate__fadeIn animate__delay-0.5s">Products not found</h1>
+      <p>The product is probably not available in our store</p>
+    </div>
+  </div>
+  </ng-container>
+</div>
+</app-menu>

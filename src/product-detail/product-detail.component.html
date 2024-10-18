@@ -1,0 +1,31 @@
+<app-menu>
+  <div class="backgroundimagepc">
+    <ion-refresher *ngIf="(showRefresher$ | async)" slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div class="container">
+      <img [src]="product.images" (error)="onImageError($event)">
+      <ion-list [inset]="true" class="containerDetails">
+        <ion-item>
+          <h1>{{product.title}}
+            <span class="price">
+              {{ product.price | currency:'USD':'symbol':'1.2-2' }}
+            </span>
+          </h1>
+        </ion-item>
+        <ion-item>
+          <p>{{product.description}}</p>
+        </ion-item>
+        <ion-item>
+          <h4>Category: {{product.category.name}}</h4>
+            <ion-button class="button-19" id="open-toast" (click)="addProduct(product)" fill="clear">
+              Add to cart <ion-icon name="cart-outline" style="margin-left: 8px;"></ion-icon>
+            </ion-button>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+</app-menu>
+
+<ion-toast trigger="open-toast" [duration]="1000" message="The product has been added to your cart!"
+  class="custom-toast" position="bottom" icon="checkbox-sharp" layout="stacked"></ion-toast>

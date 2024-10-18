@@ -1,0 +1,31 @@
+ion-menu::part(backdrop) {
+  background-color: var(--blue-color);
+}
+
+ion-menu::part(container) {
+  border-radius: 0 20px 20px 0;
+
+  box-shadow: 4px 0px 16px var(--box-shadow-menu);
+}
+
+ion-toolbar{
+  display: flex;
+  flex-direction: row;
+}
+
+ion-img{
+  width: 200px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+}
+
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="displayCart">
+    <ion-button id="notification-btn" [routerLink]="['/home/cart']" expand="block" fill="clear" shape="round">
+        <img class="imageCartShop" [src]=imageCartShop alt="">
+        <ion-badge *ngIf="cartItemCount > 0" id="notifications-badge" color="danger">
+            <ng-container *ngIf="cartItemCount > 9">9+</ng-container>
+            <ng-container *ngIf="cartItemCount <= 9">{{cartItemCount}}</ng-container>
+        </ion-badge>
+    </ion-button>
+</div>

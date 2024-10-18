@@ -1,0 +1,29 @@
+.imageCartShop{
+    width: 100px;
+}
+
+#notification-button {            
+    position: relative;
+    overflow: visible!important;
+}
+
+#notifications-badge {
+    background-color: red;
+    position: absolute;
+    top: 100;
+    right: -3px;
+    border-radius: 30%;
+    padding: 3px;
+}
+
+div{
+    margin: 20px 0 0 0px;
+    display: flex;
+    align-self: center;
+}
+
+@media (max-width: 768px) {
+    .displayCart {
+      display: none;
+    }
+  }
